@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo Sokit Io</title>
+</head>
+<script src="jquery.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script type="text/javascript">
+// call on server 
+var socket = io("http://localhost:3000"); // each acces F5 one  person connect
+	$(document).ready(function() {
+		$("#mrA").click(function() {
+			socket.emit("Client-send-data","hello")
+		});
+	})
+
+</script>
+<body>
+	Hello world
+	<div id = "mrA"> Click send  </div>
+
+</body>
+
+</html>
