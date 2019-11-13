@@ -7,8 +7,23 @@ app.set("views","./views");  // create one founder is views //  mission of views
 var server = require("http").Server(app); // create variables server
 var io = require("socket.io")(server);
 server.listen(3000);
+var arrUser = ["jhon"];
 io.on("connection", function(socket) {
 	 console.log("Co nguoi ket noi"+ socket.id);
+	 socket.on("client-send-Username",function(data) {
+	 	if(arrUser.indexOf(data) >=0) {
+	 		//fail
+	 		socket.emit("server-send-sign-up-fail");
+	 	}else {
+	 		// success
+	 		arrUser.push(data);
+	 		//add username manager ezer
+	 		socket.nameUser=data;
+	 		socket.emit("server-send-succes-sign-up",data);
+	 		//send arr for user
+	 		io.sockets.emit("server-send-all-user-activies",arrUser);
+	 	}
+	 })
 });
 	 
 
