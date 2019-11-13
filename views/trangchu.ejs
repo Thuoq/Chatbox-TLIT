@@ -1,27 +1,58 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
-	<title>Demo Sokit Io</title>
+	<title>Demo Soket Io</title>
 </head>
 <script src="jquery.js"></script>
-<script src="socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<link rel = "stylesheet" type="text/css" href ="layout.css"/>
+<script src="xuly.js"></script>
 <script type="text/javascript">
-// call on server 
-var socket = io("http://localhost:3000"); // each acces F5 one  person connect
-socket.on("server-send-data",function (data){
- $("#noidung").append(data + " ");
-});
-	$(document).ready(function() {
-		$("#mrA").click(function() {
-			socket.emit("Client-send-data","hello")
-		});
-	})
+
+
+		// // call on server 
+		// var socket = io("http://localhost:3000"); // each acces F5 one  person connect
+		// socket.on("server-send-data",function (data){
+		//  $("#noidung").append(data + " ");
+		// });
+		// 	$(document).ready(function() {
+		// 		$("#mrA").click(function() {
+		// 			socket.emit("Client-send-data","hello")
+		// 		});
+		// 	})
 
 </script>
 <body>
-	Hello world
-	<div id = "mrA"> Click send  </div>
-<h2 id = "noidung"> </h2>
+	<div id = "wrapper">
+ 		<div id  = "loginForm">
+ 			<h3> What's is your nick name ? </h3>
+ 			<input type="text" name="nickName" id = "txtUsername">
+ 			<input type="button" value="Register" id ="bthRegister">
+ 		</div>
+ 		<div id = "chatForm">
+ 			<div id = "left">
+ 				<div id ="boxTitle">Users Online</div>
+ 				<div id ="boxContent">
+ 					<div class="useronline">Teo</div>
+ 					<div class="useronline">Teo</div>
+ 					<div class="useronline">Teo</div>
+ 					<div class="useronline">Teo</div>
+ 					<div class="useronline">Teo</div>
+ 				</div>
+ 			</div>
+ 			<div id ="right">
+ 					<div id = "sayHi">
+ 						Hello <span id ="currentUser">Teo </span>, 
+ 					<input type="button" name="send" id="btnLogout" value="Logout"/>
+ 					<div id = "listMessages">
+ 						
+ 					</div>
+ 					<input type="text" name="messegaes" id="txtMessage">
+ 					<input type="button" value="send" id="btnMessegaes">
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
 </body>
-
 </html>
