@@ -24,6 +24,19 @@ io.on("connection", function(socket) {
 	 		io.sockets.emit("server-send-all-user-activies",arrUser);
 	 	}
 	 })
+	socket.on("log-out",function () {
+		arrUser.splice(
+			// Who does want delete ? 
+			arrUser.indexOf(socket.nameUser),1
+			//arrUser.indexOf  seeking where are u ? then delete it ->1
+		); 
+		socket.broadcast.emit("server-send-all-user-activies",arrUser);
+
+	});
+	socket.on("user-send-messages",function (data){
+		//io.sockets.emit("server-send-mesage",data)// how work don't not who chat ?
+		io.sockets.emit("server-send-mesage",{un:socket.nameUser,nd:data});
+	});
 });
 	 
 

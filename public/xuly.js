@@ -23,4 +23,15 @@
 	 $("#bthRegister").click(function() {
 	 	 socket.emit("client-send-Username",$("#txtUsername").val());
 	 });
+	 $("#btnLogout").click(function() {
+	 	socket.emit("log-out");
+	 	$("#chatForm").hide(2000);
+	 	$("#loginForm").show(1000);
+	 });
+	 $("#btnMessegaes").click(function(){
+	 	socket.emit("user-send-messages",$("#txtMessage").val());
+	 });
  });
+socket.on("server-send-mesage",function(data){
+	$("#listMessages").append("<div class='ms'>" + data.un + ":" + data.nd + "</div>");
+});
