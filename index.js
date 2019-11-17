@@ -6,7 +6,7 @@ app.set("views","./views");  // create one founder is views //  mission of views
 
 var server = require("http").Server(app); // create variables server
 var io = require("socket.io")(server);
-server.listen(3000);
+server.listen(process.env.PORT ||3000);
 var arrUser = ["jhon"];
 io.on("connection", function(socket) {
 	 console.log("Co nguoi ket noi"+ socket.id);
