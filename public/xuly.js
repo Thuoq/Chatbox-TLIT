@@ -1,4 +1,4 @@
- var socket = io("https://johncownut.github.io/Chatbox-TLIT/");// connect server
+ var socket = io("https://servertestforuniversity.herokuapp.com/");// connect server
  socket.on("server-send-sign-up-fail",function() {
  	alert("OOPS :( :< Please choose another Nick name :(");
  });
